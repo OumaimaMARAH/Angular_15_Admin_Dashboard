@@ -1,4 +1,4 @@
-<div class="container"> 
+<div class="container mt-2"> 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Add Category</button>
@@ -8,7 +8,61 @@
     </li>
   </ul>
   <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Add Category</div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Category List</div>
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      
+      <form>
+        <div class="row mt-2 d-flex">
+        <div class="form-group col-md-6">
+          <label for="formGroupExampleInput" class="form-label">Category Name</label>
+          <input type="text" class="form-control" [(ngModel)]="newCategory.categoryName" name="categoryName" placeholder="Enter Name">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="formGroupExampleInput2" class="form-label">Category Image</label>
+          <input type="text" class="form-control" [(ngModel)]="newCategory.imageUrl" name="imageUrl" placeholder="Enter Url Image">
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col d-flex justify-content-end">
+            <button type="button" class="btn btn-primary mr-2" (click)="createCategory()" >Add</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+    </div>
+    
+      </form>
+
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Image Url</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <th scope="row">{{ category.categoryId }}</th>
+            <td>{{ category.categoryName }}</td>
+            <td><img [src]="category.imageUrl" alt="{{ category.categoryName }}"></td>
+            <td>
+              <button class="btn btn-warning btn-sm" (click)="updateCategory(category.categoryId, category)">
+                <i class="bi bi-pencil-square"></i> 
+            </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteCategory(category.categoryId)">
+                  <i class="bi bi-trash"></i>
+              </button>
+        </tr>
+          
+        </tbody>
+      </table>
+
+    </div>
   </div>
 </div>
+
+
+

@@ -1,1 +1,93 @@
-<p>products works!</p>
+<div class="container mt-2"> 
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Add Product</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Product List</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          
+          <form>
+            <div class="row mt-2 d-flex">
+            <div class="form-group col-md-6">
+              <label for="formGroupExampleInput" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="formGroupExampleInput2" class="form-label">Description</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Description">
+            </div>
+              <div class="form-group col-md-6">
+                <label for="formGroupExampleInput2" class="form-label">Price</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Price">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="formGroupExampleInput2" class="form-label">Product Image</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Url Image">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="formGroupExampleInput2" class="form-label">Subcategory Id</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Subcategory Id">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="formGroupExampleInput2" class="form-label">Category Id</label>
+                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Category Id">
+              </div>
+          </div>
+    
+          <div class="row mt-2">
+            <div class="col d-flex justify-content-end">
+                <button type="button" class="btn btn-primary mr-2">Add</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </div>
+        
+          </form>
+    
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Product Image</th>
+                <th scope="col">Category Id</th>
+                <th scope="col">Subcategory Id</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{ product.productId }}</td>
+                    <td>{{ product.productName }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.price }}</td>
+                    <td><img [src]="product.imageUrl" alt="{{ product.productName }}" style="width: 50px; height: 50px;"></td>
+                    <td>{{ product.categoryId }}</td>
+                    <td>{{ product.subCategoryId }}</td>
+                    <td>
+                        <button class="btn btn-link button-no-space" (click)="editProduct(product)">
+                            <i class="bi bi-pencil-square"></i> <!-- Edit icon (Bootstrap icon) -->
+                        </button>
+                        <button class="btn btn-link button-no-space" (click)="deleteProduct(product.productId)">
+                            <i class="bi bi-trash" style="color: red;"></i> <!-- Delete icon (Bootstrap icon) -->
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            
+
+          </table>
+    
+        </div>
+      </div>
+    </div>
