@@ -1,0 +1,81 @@
+<table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+      <th>PhoneNumber</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>
+        <p class="fw-bold mb-1">{{ user.firstname }}</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{ user.lastname }}</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{ user.username }}</p>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">{{ user.phoneNumber }}</p>
+      </td>
+      <!--<td>
+        <span class="badge badge-{{ user.statusClass }} rounded-pill d-inline">{{ user.status }}</span>
+      </td>-->
+      <td>
+        <button type="button" class="btn btn-link btn-sm btn-rounded" >
+          <!-- Replace with Edit icon -->
+          <i class="fas fa-edit"></i>
+        </button>
+        <button type="button" class="btn btn-link btn-sm btn-rounded text-danger" (click)="deleteUser(user.id)">
+          <!-- Replace with Delete icon -->
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Deleted users section -->
+<div *ngIf="deletedUsers.length > 0">
+  <h4>Deleted Users</h4>
+  <ul>
+    <li *ngFor="let deletedUser of deletedUsers">
+      {{ deletedUser.name }} 
+      <button type="button" class="btn btn-link btn-sm" >
+        Restore
+      </button>
+    </li>
+  </ul>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Add form fields to edit user details -->
+        <div class="mb-3">
+          <label for="editName" class="form-label">Name</label>
+          <input type="text" class="form-control" id="editName" [(ngModel)]="editedUser.name">
+        </div>
+        <div class="mb-3">
+          <label for="editEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="editEmail" [(ngModel)]="editedUser.email">
+        </div>
+        <!-- Add more form fields as needed -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" >Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

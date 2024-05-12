@@ -1,0 +1,38 @@
+/* CSS for customizing table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #f5ebeb;
+    margin-bottom: 20px;
+   
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #1b1212;
+  }
+  /* Custom styles for dashboard component */
+
+  .dashboard-container {
+    background-image: ('assets/images/Tesla-Background.jpeg'); /* Background image related to cars */
+    background-size: cover;
+    background-position: center;
+    padding: 20px; /* Add some padding to the container */
+  }
+  
+
+/* Hover effect for tables */
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Light gray background on hover */
+}
+
+  

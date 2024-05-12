@@ -1,0 +1,63 @@
+/* Custom Rental Car Theme Styles */
+
+/* Body */
+body {
+    background-color: #f8f9fa; /* Light gray background */
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #343a40; /* Dark background for navbar */
+    color: #ffffff; /* White text color */
+  }
+  
+  .navbar-brand {
+    color: #ffffff; /* White text color for navbar brand */
+  }
+  
+  .nav-link {
+    color: #ffffff; /* White text color for navbar links */
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background-color: #343a40; /* Dark background for sidebar */
+    color: #ffffff; /* White text color */
+  }
+  
+  .sidebar-brand {
+    color: #ffffff; /* White text color for sidebar brand */
+  }
+  
+  .sidebar-link {
+    color: #ffffff; /* White text color for sidebar links */
+  }
+  
+  /* Cards */
+  .card {
+    background-color: #ffffff; /* White background for cards */
+  }
+  
+  .card-header {
+    background-color: #343a40; /* Dark background for card headers */
+    color: #ffffff; /* White text color for card headers */
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    background-color: #dc3545; /* Red background for primary buttons */
+    border-color: #dc3545; /* Red border color for primary buttons */
+  }
+  
+  .btn-primary:hover {
+    background-color: #c82333; /* Darker red background on hover */
+    border-color: #bd2130; /* Darker red border color on hover */
+    color: #ffffff; /* White text color on hover */
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #343a40; /* Dark background for footer */
+    color: #ffffff; /* White text color */
+  }
+  
